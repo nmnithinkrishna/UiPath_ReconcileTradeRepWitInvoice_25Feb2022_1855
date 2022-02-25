@@ -1,0 +1,154 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="771,1673" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="62">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Globalization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="781,1608" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Invoice" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Trades" />
+      <Variable x:TypeArguments="x:Int32" Name="int_row" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_Invoice]" DisplayName="Read Range - Invoice Report" sap:VirtualizedContainerService.HintSize="739,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" PreserveFormat="True" SheetName="Sheet1" WorkbookPath="InvoiceReport.xlsx">
+      <ui:ReadRange.Range>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </ui:ReadRange.Range>
+    </ui:ReadRange>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Invoice Report Rows - &quot; + dt_Invoice.RowCount.ToString]" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_Trades]" DisplayName="Read Range - Trade Report" sap:VirtualizedContainerService.HintSize="739,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" PreserveFormat="True" SheetName="Sheet1" WorkbookPath="TradeReport.xlsx">
+      <ui:ReadRange.Range>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </ui:ReadRange.Range>
+    </ui:ReadRange>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Trade Report Rows - &quot; + dt_Trades.RowCount.ToString]" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[int_row]" DataTable="[dt_Trades]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="739,1000" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="705,880" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[Not CurrentRow(&quot;Buying Start Date&quot;).ToString.Equals(dt_Invoice(int_row)(&quot;BeginDT&quot;).ToString) _&#xD;&#xA;OrElse&#xD;&#xA;(Date.ParseExact(CurrentRow(&quot;Buying Start Date&quot;).ToString,{&quot;mm-dd-yyyy&quot;, &quot;m/d/yyyy&quot;}, Nothing, Nothing) &lt; Date.ParseExact(dt_Invoice(int_row)(&quot;DueDT&quot;).ToString,{&quot;mm-dd-yyyy&quot;, &quot;m/d/yyyy&quot;},Nothing, Nothing) AndAlso &#xD;&#xA;Date.ParseExact(CurrentRow(&quot;Buying Start Date&quot;).ToString,{&quot;mm-dd-yyyy&quot;, &quot;m/d/yyyy&quot;}, Nothing, Nothing) &gt; Date.ParseExact(dt_Invoice(int_row)(&quot;BeginDT&quot;).ToString,{&quot;mm-dd-yyyy&quot;, &quot;m/d/yyyy&quot;},Nothing, Nothing))]" DisplayName="If/Else - Check Case1" sap:VirtualizedContainerService.HintSize="663,374" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Failed Case1 For Row - &quot; + Cstr(int_row+1)]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <If Condition="[Not CurrentRow(&quot;Buying End Date&quot;).ToString.Equals(dt_Invoice(int_row)(&quot;EndDT&quot;).ToString) _&#xD;&#xA;OrElse&#xD;&#xA;Not CurrentRow(&quot;Buying End Date&quot;).ToString.Equals(dt_Invoice(int_row)(&quot;DueDT&quot;).ToString) _&#xD;&#xA;OrElse&#xD;&#xA;(Date.ParseExact(CurrentRow(&quot;Buying End Date&quot;).ToString, {&quot;mm-dd-yyyy&quot;, &quot;m/d/yyyy&quot;}, Nothing, Nothing) &lt; Date.ParseExact(dt_Invoice(int_row)(&quot;EndDT&quot;).ToString,{&quot;mm-dd-yyyy&quot;, &quot;m/d/yyyy&quot;},Nothing, Nothing).AddDays(21) AndAlso &#xD;&#xA;Date.ParseExact(CurrentRow(&quot;Buying Start Date&quot;).ToString,{&quot;mm-dd-yyyy&quot;, &quot;m/d/yyyy&quot;},Nothing, Nothing) &gt; Date.ParseExact(dt_Invoice(int_row)(&quot;EndDT&quot;).ToString,{&quot;mm-dd-yyyy&quot;, &quot;m/d/yyyy&quot;},Nothing, Nothing))]" DisplayName="If/Else - Case 2" sap:VirtualizedContainerService.HintSize="663,374" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Failed Case2 For Row - &quot; + Cstr(int_row+1)]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="242,83" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+  </Sequence>
+</Activity>
